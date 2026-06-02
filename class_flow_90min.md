@@ -1,4 +1,4 @@
-# 90分実習進行案: bulk RNA-seq DEGでSLEのIFN signatureを読む
+# 90分実習進行案: bulk RNA-seq DEGでTh1のSLE signatureを読む
 
 ## ねらい
 
@@ -15,29 +15,30 @@ RやLinuxの習得ではなく、single-cell実習で行った「発現から細
 10-20分: 免疫学の問いを置く
 
 - SLEではI型IFN応答が上がることが多い
-- どの免疫細胞で見えやすいか
+- 今回はTh1細胞に限定して、疾患差が遺伝子発現にどう現れるかを見る
 - marker遺伝子を見る感覚で、DEGとIFN signatureを見る
 
 20-35分: Colabセットアップと一括実行
 
 - セル1で `R_lib.zip` とデータzipを自動取得
-- 失敗時のみ `/content` に手動アップロードして再実行
-- まずは `celltype <- "pDC"` のまま実行
+- まずはTh1のDEG解析を一括実行
+- エラーが出た場合は、表示メッセージを教員に見せてもらう
 
-35-55分: pDCの結果を読む
+35-55分: Th1のDEG結果を読む
 
 - PCAでHC/SLEの分かれ方を見る
 - Volcano plotでSLE上昇遺伝子を見る
 - IFN関連遺伝子のenrichmentとheatmapを見る
 
-55-70分: 細胞種を変えて比較
+55-70分: Hallmark pathway解析
 
-- `CL_Mono`, `Th1`, `Plasmablast`, `NK` などに変更
-- 同じSLEでも、細胞種により見え方が変わることを確認
+- IFN 1セットのFisher検定から、複数pathwayへの拡張として説明
+- `clusterProfiler::enricher()` とMSigDB Hallmark gene setsを使う
+- dotplotで、SLE-up DEGに多いpathwayを読む
 
 70-82分: 全体討論
 
-- どの細胞種でIFN signatureが見えやすかったか
+- IFN signatureとHallmark pathway解析の結果はどうつながるか
 - single-cellのmarker読みとbulk DEG読みの共通点、違い
 - DEGは「原因」ではなく「状態の手がかり」であることを確認
 

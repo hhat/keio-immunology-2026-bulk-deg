@@ -18,11 +18,12 @@
 ## Before class
 
 1. 講師用ノートブックをGoogle ColabのR runtimeで実行し、`/content/R_lib.zip` を作成する。
-2. `R_lib.zip` と `bulk_deg_course_data.zip` をGoogle Driveにアップロードする。
+2. `R_lib.zip` と `bulk_deg_course_data.zip` をGoogle Driveの共有フォルダにアップロードする。
 3. それぞれ「リンクを知っている全員が閲覧可」にする。
-4. 学生用ノートブック内の `R_LIB_FILE_ID`, `DATA_FILE_ID`, 必要なら `R_LIB_SHA256` を設定する。
-5. 学生用ノートブックをGitHubまたはLMSに置く。
+4. 学生用ノートブックをGitHubにpushし、Colab直リンクをLMSに置く。
 
-## Backup plan
+## Notes
 
-Google Driveからの自動取得が失敗した学生には、`R_lib.zip` と `bulk_deg_course_data.zip` をColabの `/content` に手動アップロードしてもらい、セル1を再実行してもらう。
+- `R_lib.zip` には `edgeR`, `ggplot2`, `ggrepel`, `pheatmap`, `clusterProfiler`, `enrichplot`, `msigdbr` が必要。
+- `bulk_deg_course_data.zip` はGitHubからも自動取得できる。
+- `R_lib.zip` は大きくなる可能性があるため、基本はGoogle Driveから取得する。

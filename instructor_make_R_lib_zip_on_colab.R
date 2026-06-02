@@ -9,17 +9,17 @@ cat("R library path:", .libPaths()[1], "\n")
 
 options(repos = c(CRAN = "https://cloud.r-project.org"))
 
-cran_packages <- c("ggplot2", "ggrepel", "pheatmap")
+cran_packages <- c("ggplot2", "ggrepel", "pheatmap", "msigdbr")
 install.packages(cran_packages, lib = R_LIB_DIR, dependencies = c("Depends", "Imports", "LinkingTo"))
 
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager", lib = R_LIB_DIR)
 }
 library(BiocManager)
-BiocManager::install(c("edgeR"), lib = R_LIB_DIR, ask = FALSE, update = FALSE)
+BiocManager::install(c("edgeR", "clusterProfiler", "enrichplot"), lib = R_LIB_DIR, ask = FALSE, update = FALSE)
 
 .libPaths(c("/content/R_lib", .libPaths()))
-packages <- c("edgeR", "ggplot2", "ggrepel", "pheatmap")
+packages <- c("edgeR", "ggplot2", "ggrepel", "pheatmap", "clusterProfiler", "enrichplot", "msigdbr")
 ok <- sapply(packages, requireNamespace, quietly = TRUE)
 print(ok)
 if (!all(ok)) stop("読み込めないパッケージがあります。installログを確認してください。")
